@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AppleId</key>
+	<string></string>
+	<key>Banner</key>
+	<dict>
+		<key>Phone</key>
+		<string></string>
+		<key>Pad</key>
+		<string></string>
+	</dict>
+	<key>Rect</key>
+	<dict>
+		<key>Phone</key>
+		<string></string>
+		<key>Pad</key>
+		<string></string>
+	</dict>
+	<key>Interstitial</key>
+	<dict>
+		<key>Phone</key>
+		<string></string>
+		<key>Pad</key>
+		<string></string>
+	</dict>
+	<key>Crosspromo</key>
+	<dict>
+		<key>AppID</key>
+		<string></string>
+		<key>Signature</key>
+		<string></string>
+	</dict>
+	<key>Rewarded</key>
+	<dict>
+		<key>AppID</key>
+		<string></string>
+		<key>Signature</key>
+		<string></string>
+	</dict>
+	<key>Native</key>
+	<dict>
+		<key>Phone</key>
+		<string></string>
+		<key>Pad</key>
+		<string></string>
+	</dict>
+	<key>Analytics</key>
+	<dict>
+		<key>Platform1</key>
+		<string></string>
+		<key>Platform2</key>
+		<string></string>
+		<key>Platform3</key>
+		<string></string>
+		<key>Platform4</key>
+		<string></string>
+	</dict>
+	<key>ServerBaseUrl</key>
+	<string>http://www.crazycampmedia.com</string>
+	<key>PrivacyPageUrl</key>
+	<string></string>
+	<key>MoreGamePage</key>
+	<string>https://itunes.apple.com/us/developer/yang-peng/id929127231</string>
+</dict>
+</plist>
