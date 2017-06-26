@@ -15,7 +15,7 @@
 {
 
 }
-
+@property(nonatomic, strong) UIActivityIndicatorView *active;
 +(Moregames*)sharedManager;
 
 -(void)showMoreGamePage;
