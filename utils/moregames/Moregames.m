@@ -41,15 +41,15 @@ static Moregames *s_instance=nil;
     //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
     //    return ;
     UIWindow *vc = [UIApplication sharedApplication].keyWindow;
-    UIWebView *_webView= [[UIWebView alloc]initWithFrame:vc.rootViewController.view.frame];
-    
+    CGRect _rect = [UIApplication sharedApplication].keyWindow.rootViewController.view.bounds;
+    UIWebView *_webView= [[UIWebView alloc]initWithFrame:_rect];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy: NSURLRequestUseProtocolCachePolicy timeoutInterval: 3.5f]];
     _webView.delegate = self;
     [_moreGameController.view addSubview:_webView];
     //[vc bringSubviewToFront:webView];
     
     _active = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-    _active.center = vc.center;
+    _active.center = _webView.center;;
     [_active setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
     _active.color = [UIColor grayColor];
     [_moreGameController.view addSubview:_active];
