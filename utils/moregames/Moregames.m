@@ -119,7 +119,7 @@ static Moregames *s_instance=nil;
     };
 }
 //网页加载失败
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error{
+- (void)webView:(UIWebView *)webView didFailLoadWithError:( NSError *)error{
     [_active stopAnimating];
     _active = nil;
     
