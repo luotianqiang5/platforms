@@ -10,6 +10,7 @@
 #import "FullscreenAdBase.h"
 #import "AdDeviceHelper.h"
 #import "InterstitialAdsManager.h"
+#import "FullscreenAdMob.h"
 #import "CrosspromoAdsManager.h"
 #import "AdIdHelper.h"
 #import "AdDef.h"
@@ -104,7 +105,7 @@
         }
         else
         {
-            self.isPreloading = YES;
+      
             if(_isConfig == NO){
                 _isConfig = YES;
                 self.zoneID = [adIdArr[1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -126,8 +127,12 @@
     {
         [self onFailed: nil];
     }else {
-        GADRequest *request = [GADRequest request];
-        [[GADRewardBasedVideoAd sharedInstance] loadRequest:request withAdUnitID:self.zoneID];
+        if((NO == self.isPreloading)&&(![[GADRewardBasedVideoAd sharedInstance] isReady])) {
+              self.isPreloading = YES;
+                 [GADRewardBasedVideoAd sharedInstance].delegate = self;
+             GADRequest *request = [GADRequest request];
+            [[GADRewardBasedVideoAd sharedInstance] loadRequest:request withAdUnitID:self.zoneID];
+        }
     }
 }
 

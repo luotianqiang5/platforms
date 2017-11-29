@@ -9,7 +9,7 @@
 #import "FullscreenAdMob.h"
 
 @interface FullscreenAdMob()<GADInterstitialDelegate>
-
+@property (nonatomic, assign) BOOL  isPreloading;
 @property (nonatomic,retain)GADInterstitial *interstitial;
 
 @end
@@ -20,7 +20,7 @@
 {
     self = [super init];
     if (self) {
-        
+        self.isPreloading = NO;
     }
     return self;
 }
@@ -39,6 +39,9 @@
         [self onLoaded];
         return;
     }
+    if(self.isPreloading == YES)
+        return;
+    self.isPreloading = YES;
     [self.interstitial loadRequest:[GADRequest request]];
 }
 -(BOOL)show{
@@ -60,11 +63,13 @@
     NSLog(@"Interstitial adapter class name: %@", ad.adNetworkClassName);
     
     if(ad==self.interstitial){
+          self.isPreloading  = NO;
         [self onLoaded];
     }
 }
 - (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error{
     if(ad==self.interstitial){
+        self.isPreloading  = NO;
         [self onFailed:error];
     }
 }
@@ -76,6 +81,7 @@
 }
 - (void)interstitialDidDismissScreen:(GADInterstitial *)ad{
     if(ad==self.interstitial){
+          self.isPreloading  = NO;
         [self onCollapsed];
     }
     self.interstitial=nil;
